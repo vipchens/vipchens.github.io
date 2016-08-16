@@ -126,9 +126,9 @@ branch: master
     </summary>
     
     
-      <category term="随心" scheme="http://yoursite.com/tags/%E9%9A%8F%E5%BF%83/"/>
-    
       <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="随心" scheme="http://yoursite.com/tags/%E9%9A%8F%E5%BF%83/"/>
     
   </entry>
   
@@ -157,9 +157,9 @@ branch: master
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
-    
       <category term="留恋" scheme="http://yoursite.com/tags/%E7%95%99%E6%81%8B/"/>
+    
+      <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
