@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>RuoFei Blog</title>
-  <subtitle>一个小白文科生的学习成长历程，所说所写的东西有任何不对的地方，请各位大神多多留言指教！</subtitle>
+  <subtitle>小白文科生的成长历程，所说所写的东西有不对的地方，请各位大神多留言指教！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -126,9 +126,9 @@ branch: master
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
-    
       <category term="随心" scheme="http://yoursite.com/tags/%E9%9A%8F%E5%BF%83/"/>
+    
+      <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
@@ -157,9 +157,9 @@ branch: master
     </summary>
     
     
-      <category term="留恋" scheme="http://yoursite.com/tags/%E7%95%99%E6%81%8B/"/>
-    
       <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="留恋" scheme="http://yoursite.com/tags/%E7%95%99%E6%81%8B/"/>
     
   </entry>
   
