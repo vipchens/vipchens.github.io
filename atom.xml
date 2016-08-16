@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>RuoFei Blog</title>
-  <subtitle>一个文科生的学习成长历程</subtitle>
+  <subtitle>一个小白文科生的学习成长历程，所说所写的东西有任何不对的地方，请各位大神多多留言指教！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-16T02:08:06.473Z</updated>
+  <updated>2016-08-16T02:31:57.807Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,81 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo3.2.2+Github我走的弯路</title>
-    <link href="http://yoursite.com/2016/08/16/Hexo3-2-2-Github%E6%88%91%E8%B5%B0%E7%9A%84%E5%BC%AF%E8%B7%AF/"/>
-    <id>http://yoursite.com/2016/08/16/Hexo3-2-2-Github我走的弯路/</id>
-    <published>2016-08-16T15:04:33.000Z</published>
-    <updated>2016-08-16T02:08:06.473Z</updated>
-    
-    <content type="html"><![CDATA[<p>搭建这个Blog的时候，主要是参考这篇文章：<a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">HEXO搭建个人博客</a></p>
-<p>参照上面这篇Blog大部分的命令都是可行的，但可能由于是版本变迁，有些命令现在的3.X版本不适用，我在这个过程中折腾了好几个晚上才弄明白！故把一些有变化的地方记录下来，一是自己备份，而是抱着能帮到别人的侥幸心理，废话不多说。</p>
-<p>首先看下我的环境，<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js版本</a>为稳定版的4.4.7。</p>
-<pre><code>hexo: 3.2.2
-hexo-cli: 1.0.2
-os: Windows_NT 6.1.7601 win32 x64
-http_parser: 2.5.2
-node: 4.4.7
-v8: 4.5.103.36
-uv: 1.8.0
-zlib: 1.2.8
-ares: 1.10.1-DEV
-icu: 56.1
-modules: 46
-openssl: 1.0.2h
-</code></pre><h2 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH-Key"></a>配置SSH-Key</h2><p>一开始我一直都是使用参考文章那样配置，但当我看到另一篇Blog的时候，才发现应该是这样的，正确性如何不知道，但我这么设置确实能<code>Hexo d</code>上。</p>
-<p>1.生成指定名字的密钥(会生成github_jslite 和 github_jslite.pub 这两个文件在默认的位置：C:\Users\Administrator.ssh)</p>
-<pre><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;
-</code></pre><p>2.打开公钥文件 id_rsa.pub ，并把内容复制至代码托管平台上<br><img src="http://i1.buimg.com/567571/9bf1fb47fd56b62f.jpg" alt=""></p>
-<p><img src="http://i1.buimg.com/567571/3fe6f2281cccfb76.png" alt=""></p>
-<h2 id="配置-config-yml（这是个折腾的我快放弃的地方）"><a href="#配置-config-yml（这是个折腾的我快放弃的地方）" class="headerlink" title="配置_config.yml（这是个折腾的我快放弃的地方）"></a>配置_config.yml（这是个折腾的我快放弃的地方）</h2><p>1.打开文件找到最下面的这个部分：</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-type: 
-</code></pre><p>2.修改成这样的格式：</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-type: git
-repository: git@github.com:vipchens/vipchens.github.io.git
-branch: master
-</code></pre><p>其中<code>type: git</code> 这个参数，在HEXO3.X后，已经由github变成了git,这个地方让我纠结了很久，直至快要放弃的时候才考虑到是不是版本的问题而去百度。<br><code>repository:git@github.com:vipchens/vipchens.github.io.git</code>这个参数的方式如下图：<br><img src="http://i2.buimg.com/567571/f41a0d2c805480bf.png" alt=""></p>
-<blockquote>
-<p>切记，修改HEXO所有参数的时候，参数与值之间<code>一定要加上空格</code>，<code>一定要加上空格</code>，<code>一定要加上空格</code>，重要的事情说三遍。（<code>参数与值</code>这个描述是我一个文科生对代码的理解，具体对不对，我觉得不重要，自己理解就行了）</p>
-</blockquote>
-<h2 id="hexo-d-部署到Github"><a href="#hexo-d-部署到Github" class="headerlink" title="hexo d 部署到Github"></a>hexo d 部署到Github</h2><p>参考文章：<a href="http://blog.csdn.net/wx_962464/article/details/44786929" target="_blank" rel="external">Hexo 使用中遇到的问题总结</a><br>这个是在正常hexo d后，部署提示找不到git，是淫威在Hexo 3.0版本后deploy git 被分开的，所以需要安装，安装命令如下:</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p>安装好后再尝试hexo d一下就ok。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>1.安装环境的时候，需多尝试横向思考，别在一个问题或者一片文章中打转，正确的解决方法应该是把出错的结果找出来，多百度谷歌，有资源的可以多请教别人。像我这次就是，明明所有的步骤都是按照人家的来，为什么人家的可以，我的却是这里出错那里出错，教训之一。</p>
-<p>2.作为一个只会使用图形界面的文科生第一次尝试在CMD下敲命令行产生静态Blog并部署到Github上成功的那一刻，内心有多兴奋，你们这些大神是无法理解的。</p>
-<p>3.搭建Blog只是开始，坚持的学习、记录、分享才是最难的。</p>
-</blockquote>
-<p>最后配图纪念部署成功的那一刻。</p>
-<p><img src="http://i1.buimg.com/567571/6d2e1a21db1ca667.png" alt=""></p>
-<p><img src="http://i1.buimg.com/567571/72d1b84c5907338c.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;搭建这个Blog的时候，主要是参考这篇文章：&lt;a href=&quot;http://www.cnblogs.com/zhcncn/p/4097881.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HEXO搭建个人博客&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;参照上面这篇B
-    
-    </summary>
-    
-    
-      <category term="HEXO" scheme="http://yoursite.com/tags/HEXO/"/>
-    
-      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>为何尝试写Blog，因为懒惰</title>
-    <link href="http://yoursite.com/2016/08/15/%E4%B8%BA%E4%BD%95%E5%B0%9D%E8%AF%95%E5%86%99Blog%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%87%92%E6%83%B0/"/>
-    <id>http://yoursite.com/2016/08/15/为何尝试写Blog，因为懒惰/</id>
+    <link href="http://yoursite.com/2016/08/15/2016-08-15-1/"/>
+    <id>http://yoursite.com/2016/08/15/2016-08-15-1/</id>
     <published>2016-08-15T07:04:33.000Z</published>
-    <updated>2016-08-16T02:07:49.997Z</updated>
+    <updated>2016-08-16T02:31:57.807Z</updated>
     
     <content type="html"><![CDATA[<h2 id="因"><a href="#因" class="headerlink" title="因"></a>因</h2><p>2016年7月的某个夜晚，结束了一把lol之后，开始怀疑人生，虽然此前已经有无数次怀疑过，但都没有那次那么重过。</p>
 <blockquote>
