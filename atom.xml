@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-16T02:44:24.894Z</updated>
+  <updated>2016-08-16T02:45:24.898Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/08/16/Hexo3-2-2-Github%E6%88%91%E8%B5%B0%E7%9A%84%E5%BC%AF%E8%B7%AF/"/>
     <id>http://yoursite.com/2016/08/16/Hexo3-2-2-Github我走的弯路/</id>
     <published>2016-08-16T15:04:33.000Z</published>
-    <updated>2016-08-16T02:44:24.894Z</updated>
+    <updated>2016-08-16T02:45:24.898Z</updated>
     
     <content type="html"><![CDATA[<p>搭建这个Blog的时候，主要是参考这篇文章：<a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">HEXO搭建个人博客</a></p>
 <p>参照上面这篇Blog大部分的命令都是可行的，但可能由于是版本变迁，有些命令现在的3.X版本不适用，我在这个过程中折腾了好几个晚上才弄明白！故把一些有变化的地方记录下来，一是自己备份，而是抱着能帮到别人的侥幸心理，废话不多说。</p>
@@ -92,7 +92,7 @@ branch: master
     <link href="http://yoursite.com/2016/08/15/%E4%B8%BA%E4%BD%95%E5%B0%9D%E8%AF%95%E5%86%99Blog%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%87%92%E6%83%B0/"/>
     <id>http://yoursite.com/2016/08/15/为何尝试写Blog，因为懒惰/</id>
     <published>2016-08-15T07:04:33.000Z</published>
-    <updated>2016-08-16T02:42:12.910Z</updated>
+    <updated>2016-08-16T02:45:22.467Z</updated>
     
     <content type="html"><![CDATA[<h2 id="因"><a href="#因" class="headerlink" title="因"></a>因</h2><p>2016年7月的某个夜晚，结束了一把lol之后，开始怀疑人生，虽然此前已经有无数次怀疑过，但都没有那次那么重过。</p>
 <blockquote>
@@ -134,10 +134,10 @@ branch: master
   
   <entry>
     <title>Hello World （留作纪念）</title>
-    <link href="http://yoursite.com/2016/08/12/hello-world/"/>
-    <id>http://yoursite.com/2016/08/12/hello-world/</id>
-    <published>2016-08-12T11:19:38.473Z</published>
-    <updated>2016-08-16T02:43:37.640Z</updated>
+    <link href="http://yoursite.com/2016/08/13/hello-world/"/>
+    <id>http://yoursite.com/2016/08/13/hello-world/</id>
+    <published>2016-08-13T15:55:33.000Z</published>
+    <updated>2016-08-16T02:45:01.616Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
