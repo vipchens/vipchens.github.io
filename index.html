@@ -240,6 +240,172 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/26/JavaScript学习笔记2-（函数的使用）/" itemprop="url">
+                  JavaScript学习笔记2 （函数的使用）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T21:54:11+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/26/JavaScript学习笔记2-（函数的使用）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/JavaScript学习笔记2-（函数的使用）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/26/JavaScript学习笔记2-（函数的使用）/" class="leancloud_visitors" data-flag-title="JavaScript学习笔记2 （函数的使用）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>以下笔记是我学习JavaScript时所记录的笔记，参考书籍（建议大家购买正版。）：<br>[JavaScript_DOM编程艺术第二版（中文）.PDF][1]<br>![此处输入图片的描述][2]</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>多次使用同一段代码，可以把它们封装成一个函数。函数就是一组允许你在代码里随时调用的语句，每个函数都是一个短小的脚本。<br>先对函数做出定义再调用他们：<br><code>格式function 函数名(){...语句...}</code></p>
+<pre><code>function name(){
+    var a = [&quot;ruofei&quot;,&quot;lee&quot;,&quot;liu&quot;,&quot;chen&quot;];
+    for(var b=0;b&lt;a.length;b++){
+        document.write(a[b],&quot; &quot;);
+    }
+}
+</code></pre><p>这个name函数是依次在页面上显示出数组<code>a</code>里的内容，在页面中调用这个函数<code>name();</code>显示内容如下：</p>
+<pre><code>ruofei lee liu chen
+</code></pre><p>当要需要反复重复同一件事情的时候，则可以使用函数来操作。不过函数的真正威力是可以把不同的数据传送给它，它将这些数据在预先设定好的规则下操作完成后返回我们一个结果。<br>比如一个物理问题：<br>一个10kg重的物体，它的重力是多少?那20kg，25kg呢？</p>
+<p>先构建函数<code>g</code>：</p>
+<pre><code>function g(kg){
+    var n = kg * 9.8;
+    document.write(n,&quot; &quot;);
+}
+</code></pre><p>然后在需要做运算输出结果的地方插入<code>g(多少kg)</code>:</p>
+<pre><code>g(10);
+g(20);
+g(25);
+</code></pre><p>得出的结果是：</p>
+<blockquote>
+<p>98 196 245.00000000000003</p>
+</blockquote>
+<p>这里我有个问题，为什么是会出现小数，求大神解释下。</p>
+<p>以下是完整的代码：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    function g(kg){
+        var n = kg * 9.8;
+        document.write(n,&quot; &quot;);
+    }
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    g(10);
+    g(20);
+    g(25);
+&lt;/script&gt;
+</code></pre><p><code>document.write(n,&quot; &quot;);</code>，<code>&quot; &quot;</code>这个空值只是想让输出的内容间有个字符的间隔而已，方便观察！</p>
+<h2 id="函数与变量命名技巧"><a href="#函数与变量命名技巧" class="headerlink" title="函数与变量命名技巧"></a>函数与变量命名技巧</h2><p>命名变量和函数的命名方式可以区分出来，方便观察，比如一个使用<code>_</code>下划线写法，一个使用驼峰写法，可以把变量和函数一眼区分出来。</p>
+<p>如：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    function aGravity(kg){
+        var a_gravity = kg * 9.8;
+        document.write(a_gravity,&quot; &quot;);
+    }
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    aGravity(10);
+    aGravity(20);
+    aGravity(25);
+&lt;/script&gt;
+</code></pre><h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p>变量有两种形式：全局变量、局部变量<br>全局变量：可以在脚本中任意位置引用（包括函数内部）。作用域是整个脚本。<br>声明方法：</p>
+<pre><code>变量名 = 值；
+a = 0 ;           //不使用var声明的变量是全局变量
+</code></pre><p>局部变量：只存在于声明它的这个函数内部，在函数外是无法被引用的。作用域是某个特定的函数内。</p>
+<pre><code>var 变量名 = 值；
+var a = 0 ;           //使用var声明的变量是局部变量
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/25/JavaScript学习笔记1（注释、变量及数据类型）/" itemprop="url">
                   JavaScript学习笔记1
                 </a>
@@ -1101,7 +1267,7 @@ branch: master
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

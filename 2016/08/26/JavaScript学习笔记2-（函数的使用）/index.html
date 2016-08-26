@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="日记,心情,Linux," />
+  <meta name="keywords" content="JavaScript,笔记," />
 
 
 
@@ -86,21 +86,22 @@
 
 
 
-<meta name="description" content="作为一个标准的文科生，平时都有听码农们的节目，主要还是以IPN的内核恐慌、IT公论为主，很多期都是反反复复的听，虽然绝大多数听不懂，但还是给了我无数的启发和想学习的动力。
-我没有任何语言基础，硬要说的话只会写些简单的HTML+CSS，会用几款建站程序，现在的工作是在一家手机外贸公司做美工，主要工作是做广告图+电商网站页面修改+活动单页。工作内容接触的最多的还是photoshop+FTP+HTML+">
+<meta name="description" content="以下笔记是我学习JavaScript时所记录的笔记，参考书籍（建议大家购买正版。）：[JavaScript_DOM编程艺术第二版（中文）.PDF][1]![此处输入图片的描述][2]
+函数多次使用同一段代码，可以把它们封装成一个函数。函数就是一组允许你在代码里随时调用的语句，每个函数都是一个短小的脚本。先对函数做出定义再调用他们：格式function 函数名(){...语句...}
+functio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一言不合就装上Linux">
-<meta property="og:url" content="http://yoursite.com/2016/08/23/一言不合就装上Linux/index.html">
+<meta property="og:title" content="JavaScript学习笔记2 （函数的使用）">
+<meta property="og:url" content="http://yoursite.com/2016/08/26/JavaScript学习笔记2-（函数的使用）/index.html">
 <meta property="og:site_name" content="RuoFei Blog">
-<meta property="og:description" content="作为一个标准的文科生，平时都有听码农们的节目，主要还是以IPN的内核恐慌、IT公论为主，很多期都是反反复复的听，虽然绝大多数听不懂，但还是给了我无数的启发和想学习的动力。
-我没有任何语言基础，硬要说的话只会写些简单的HTML+CSS，会用几款建站程序，现在的工作是在一家手机外贸公司做美工，主要工作是做广告图+电商网站页面修改+活动单页。工作内容接触的最多的还是photoshop+FTP+HTML+">
-<meta property="og:image" content="http://obtw9lzb6.bkt.clouddn.com/16-8-23/37234069.jpg">
-<meta property="og:updated_time" content="2016-08-23T03:29:11.345Z">
+<meta property="og:description" content="以下笔记是我学习JavaScript时所记录的笔记，参考书籍（建议大家购买正版。）：[JavaScript_DOM编程艺术第二版（中文）.PDF][1]![此处输入图片的描述][2]
+函数多次使用同一段代码，可以把它们封装成一个函数。函数就是一组允许你在代码里随时调用的语句，每个函数都是一个短小的脚本。先对函数做出定义再调用他们：格式function 函数名(){...语句...}
+functio">
+<meta property="og:updated_time" content="2016-08-26T03:21:10.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一言不合就装上Linux">
-<meta name="twitter:description" content="作为一个标准的文科生，平时都有听码农们的节目，主要还是以IPN的内核恐慌、IT公论为主，很多期都是反反复复的听，虽然绝大多数听不懂，但还是给了我无数的启发和想学习的动力。
-我没有任何语言基础，硬要说的话只会写些简单的HTML+CSS，会用几款建站程序，现在的工作是在一家手机外贸公司做美工，主要工作是做广告图+电商网站页面修改+活动单页。工作内容接触的最多的还是photoshop+FTP+HTML+">
-<meta name="twitter:image" content="http://obtw9lzb6.bkt.clouddn.com/16-8-23/37234069.jpg">
+<meta name="twitter:title" content="JavaScript学习笔记2 （函数的使用）">
+<meta name="twitter:description" content="以下笔记是我学习JavaScript时所记录的笔记，参考书籍（建议大家购买正版。）：[JavaScript_DOM编程艺术第二版（中文）.PDF][1]![此处输入图片的描述][2]
+函数多次使用同一段代码，可以把它们封装成一个函数。函数就是一组允许你在代码里随时调用的语句，每个函数都是一个短小的脚本。先对函数做出定义再调用他们：格式function 函数名(){...语句...}
+functio">
 
 
 
@@ -121,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/23/一言不合就装上Linux/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/26/JavaScript学习笔记2-（函数的使用）/"/>
 
-  <title> 一言不合就装上Linux | RuoFei Blog </title>
+  <title> JavaScript学习笔记2 （函数的使用） | RuoFei Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +244,7 @@
             
             
               
-                一言不合就装上Linux
+                JavaScript学习笔记2 （函数的使用）
               
             
           </h1>
@@ -255,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-23T22:12:39+08:00" content="2016-08-23">
-              2016-08-23
+            <time itemprop="dateCreated" datetime="2016-08-26T21:54:11+08:00" content="2016-08-26">
+              2016-08-26
             </time>
           </span>
 
@@ -266,8 +267,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/23/一言不合就装上Linux/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/一言不合就装上Linux/" itemprop="commentsCount"></span>
+                <a href="/2016/08/26/JavaScript学习笔记2-（函数的使用）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/JavaScript学习笔记2-（函数的使用）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -277,7 +278,7 @@
 
           
           
-             <span id="/2016/08/23/一言不合就装上Linux/" class="leancloud_visitors" data-flag-title="一言不合就装上Linux">
+             <span id="/2016/08/26/JavaScript学习笔记2-（函数的使用）/" class="leancloud_visitors" data-flag-title="JavaScript学习笔记2 （函数的使用）">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -299,12 +300,64 @@
       
 
       
-        <p>作为一个标准的文科生，平时都有听码农们的节目，主要还是以IPN的<a href="https://ipn.li/kernelpanic/" target="_blank" rel="external">内核恐慌</a>、<a href="https://ipn.li/itgonglun/" target="_blank" rel="external">IT公论</a>为主，很多期都是反反复复的听，虽然绝大多数听不懂，但还是给了我无数的启发和想学习的动力。</p>
-<p>我没有任何语言基础，硬要说的话只会写些简单的HTML+CSS，会用几款建站程序，现在的工作是在一家手机外贸公司做美工，主要工作是做广告图+电商网站页面修改+活动单页。工作内容接触的最多的还是photoshop+FTP+HTML+CSS，算不得前端，因为我连bootstrap用的都不是很熟练，JQ就更别提了，只是个普普通通的美工。内心还是很羡慕会写代码的人，不管是什么语言。</p>
-<p>静下心来搭建HEXO的时候，第一次接触命令行，万般不适应，从中出了很多问题，最明显的是shell下输入密码是不显示的，我还想想怎么敲了半天都不显示，难道键盘坏了？虽然经历了不少的挫折，但敲命令的形式搭建好了HEXO成功的那一刻，给了我继续学习的动力，上周日在家捣鼓了半天，把自己的WIN7台式弄成了win7+ubantu双系统，安装过程还是相当顺利的，只是在安装完毕后重启的时候进不去ubantu系统，查了很久是因为显卡的问题，后面跟着一篇教程修改启动文件就莫名其妙的进去了，再次感谢那些在blog上无私奉献自己的心得的人。</p>
-<p>进入图形界面的那一刻，心里真的还是很兴奋的。由于自己还是挺想往前端方面发展的，当晚就照着ruby china上的中文手册搭建好了ruby on rails的环境。觉得很神奇的事情是，只需要几个简单的命令环境就搭建完成了，还是很令我这个用windows到现在的小白吃惊，这要是在windows上，估计又得捣鼓很久了。</p>
-<p><img src="http://obtw9lzb6.bkt.clouddn.com/16-8-23/37234069.jpg" alt=""><br>百度的配图</p>
-
+        <p>以下笔记是我学习JavaScript时所记录的笔记，参考书籍（建议大家购买正版。）：<br>[JavaScript_DOM编程艺术第二版（中文）.PDF][1]<br>![此处输入图片的描述][2]</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>多次使用同一段代码，可以把它们封装成一个函数。函数就是一组允许你在代码里随时调用的语句，每个函数都是一个短小的脚本。<br>先对函数做出定义再调用他们：<br><code>格式function 函数名(){...语句...}</code></p>
+<pre><code>function name(){
+    var a = [&quot;ruofei&quot;,&quot;lee&quot;,&quot;liu&quot;,&quot;chen&quot;];
+    for(var b=0;b&lt;a.length;b++){
+        document.write(a[b],&quot; &quot;);
+    }
+}
+</code></pre><p>这个name函数是依次在页面上显示出数组<code>a</code>里的内容，在页面中调用这个函数<code>name();</code>显示内容如下：</p>
+<pre><code>ruofei lee liu chen
+</code></pre><p>当要需要反复重复同一件事情的时候，则可以使用函数来操作。不过函数的真正威力是可以把不同的数据传送给它，它将这些数据在预先设定好的规则下操作完成后返回我们一个结果。<br>比如一个物理问题：<br>一个10kg重的物体，它的重力是多少?那20kg，25kg呢？</p>
+<p>先构建函数<code>g</code>：</p>
+<pre><code>function g(kg){
+    var n = kg * 9.8;
+    document.write(n,&quot; &quot;);
+}
+</code></pre><p>然后在需要做运算输出结果的地方插入<code>g(多少kg)</code>:</p>
+<pre><code>g(10);
+g(20);
+g(25);
+</code></pre><p>得出的结果是：</p>
+<blockquote>
+<p>98 196 245.00000000000003</p>
+</blockquote>
+<p>这里我有个问题，为什么是会出现小数，求大神解释下。</p>
+<p>以下是完整的代码：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    function g(kg){
+        var n = kg * 9.8;
+        document.write(n,&quot; &quot;);
+    }
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    g(10);
+    g(20);
+    g(25);
+&lt;/script&gt;
+</code></pre><p><code>document.write(n,&quot; &quot;);</code>，<code>&quot; &quot;</code>这个空值只是想让输出的内容间有个字符的间隔而已，方便观察！</p>
+<h2 id="函数与变量命名技巧"><a href="#函数与变量命名技巧" class="headerlink" title="函数与变量命名技巧"></a>函数与变量命名技巧</h2><p>命名变量和函数的命名方式可以区分出来，方便观察，比如一个使用<code>_</code>下划线写法，一个使用驼峰写法，可以把变量和函数一眼区分出来。</p>
+<p>如：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    function aGravity(kg){
+        var a_gravity = kg * 9.8;
+        document.write(a_gravity,&quot; &quot;);
+    }
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    aGravity(10);
+    aGravity(20);
+    aGravity(25);
+&lt;/script&gt;
+</code></pre><h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p>变量有两种形式：全局变量、局部变量<br>全局变量：可以在脚本中任意位置引用（包括函数内部）。作用域是整个脚本。<br>声明方法：</p>
+<pre><code>变量名 = 值；
+a = 0 ;           //不使用var声明的变量是全局变量
+</code></pre><p>局部变量：只存在于声明它的这个函数内部，在函数外是无法被引用的。作用域是某个特定的函数内。</p>
+<pre><code>var 变量名 = 值；
+var a = 0 ;           //使用var声明的变量是局部变量
+</code></pre>
       
     </div>
 
@@ -326,11 +379,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/日记/" rel="tag">#日记</a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
-            <a href="/tags/心情/" rel="tag">#心情</a>
-          
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
           
         </div>
       
@@ -339,17 +390,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/19/我的手机使用史/" rel="next" title="我的手机使用史">
-                <i class="fa fa-chevron-left"></i> 我的手机使用史
+              <a href="/2016/08/25/JavaScript学习笔记1（注释、变量及数据类型）/" rel="next" title="JavaScript学习笔记1">
+                <i class="fa fa-chevron-left"></i> JavaScript学习笔记1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/25/JavaScript学习笔记1（注释、变量及数据类型）/" rel="prev" title="JavaScript学习笔记1">
-                JavaScript学习笔记1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -375,8 +422,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/23/一言不合就装上Linux/"
-           data-title="一言不合就装上Linux" data-url="http://yoursite.com/2016/08/23/一言不合就装上Linux/">
+      <div class="ds-thread" data-thread-key="2016/08/26/JavaScript学习笔记2-（函数的使用）/"
+           data-title="JavaScript学习笔记2 （函数的使用）" data-url="http://yoursite.com/2016/08/26/JavaScript学习笔记2-（函数的使用）/">
       </div>
     
   </div>
@@ -467,7 +514,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数与变量命名技巧"><span class="nav-number">1.1.</span> <span class="nav-text">函数与变量命名技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的作用域"><span class="nav-number">1.2.</span> <span class="nav-text">变量的作用域</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
