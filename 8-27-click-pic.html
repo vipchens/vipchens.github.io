@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript学习笔记3 简易图片切换</title>
+	</head>
+	<style type="text/css">
+	body{background: url(http://obtw9lzb6.bkt.clouddn.com/16-8-27/81721495.jpg) top center repeat;margin-top: 4%;}
+		a{text-decoration: none;}
+		#mid{width: 30%;margin: 0 auto;}
+		ul{margin: 0;padding: 0;}
+		ul li{list-style: none; float: left; width: 33.33%;text-align: center;margin: 10px auto 5px;}
+		ul li a{background: white;padding: 6px 15px;border-radius:5px;color: black;border:1px dashed #ADADAD;}
+		#placeholder{border:1px dashed #ADADAD; width:100%;padding:5px 0;background:white ;margin-top: 20px;}
+		#imgTitle{background: #000000;color: white;border:1px dashed #ADADAD; padding: 5px 0;text-align: center;}
+	</style>
+	<body>
+		<div id="mid">			
+			<ul id="pic">
+				<li><a target="_blank" href="http://obtw9lzb6.bkt.clouddn.com/16-8-27/48266517.jpg" onmouseover="clickPic(this); return false;" title="Change your mobile back to school up 70% off deal!">图片1</a></li>
+				<li><a target="_blank" href="http://obtw9lzb6.bkt.clouddn.com/16-8-27/61302943.jpg" onmouseover="clickPic(this); return false;" title="The Rio Games Mystic Energy Clearance Crazy Flash Sale Is Here!">图片2</a></li>
+				<li><a target="_blank" href="http://obtw9lzb6.bkt.clouddn.com/16-8-27/7737739.jpg" onmouseover="clickPic(this); return false;" title="Time Limit Panic Buying: Flash Sale 76% OFF!!">图片3</a></li>
+			</ul>
+			<div style="clear: both;"></div>
+			<img id="placeholder" src="http://obtw9lzb6.bkt.clouddn.com/16-8-27/75182785.jpg"/>
+			<p id="imgTitle">image title</p>
+		</div>
+		<p style="background: black;color: white;text-align: center;position: fixed;bottom: 0;width: 100%;padding: 5px 0;">只是个人笔记，写的不好请多指教！
+			<a target="_blank" href="http://ruofeiblog.com/" style="color: white;">ruofeiblog.com</a>
+			<p>
+				
+		<script type="text/javascript">
+			function clickPic(whichpic){
+				var ahref = whichpic.getAttribute("href");					//获取A标签中图像的位置
+				var img = document.getElementById("placeholder");			//获取占位符图像的ID
+				img.setAttribute("src",ahref);								//修改占位符图像的src参数
+				var p_title = document.getElementById("imgTitle");			//获取P描述的ID
+				var atitle = whichpic.getAttribute("title");				//获取A标签中title的位置
+				p_title.firstChild.nodeValue = atitle;						//因为<p></p>中间的文本内容是P的第一个子节点，可以使用childNodes[0]、firstChild表示。nodeValue：改变一个文本节点的值
+			}
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--<script>
+			function picClick(whichpic){
+				var source = whichpic.getAttribute("href");
+				var picUl = document.getElementById("placeholder");	
+				picUl.setAttribute("src",source);
+				var description = whichpic.getAttribute("title");
+				var titleP = document.getElementById("imgTitle");
+				titleP.firstChild.nodeValue = description;
+			}
+		</script>-->
+		
+		<!--<script type="text/javascript">
+			var a = document.getElementsByTagName("body")[0];
+			
+		</script>-->
+		<!--<script src="js/pic.js" type="text/javascript" charset="utf-8"></script>-->
+	</body>
+</html>
