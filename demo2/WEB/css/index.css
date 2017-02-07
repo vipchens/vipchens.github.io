@@ -1,0 +1,321 @@
+@charset "UTF-8";
+/*   Document   : CSS样式初始化   Created on : 2016. 8. 7,09:41:00   Author :   Description:   CSS样式表的初始化，全局样式设置。部分样式属性请根据具体页面重置其属性   导入方式：<link href="css/common.css" rel="stylesheet" type="text/css" /> */
+/* reset */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000311}}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button { margin: 0; padding: 0; }
+
+/* 初始化标签在所有浏览器中的margin、padding值 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000312}}
+fieldset, img { border: 0 none; }
+
+/* 重置fieldset（表单分组）、图片的边框为0*/
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000313}}
+dl, ul, ol, menu, li { list-style: none; }
+
+/* 重置类表前导符号为onne,menu在HTML5中有效 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000314}}
+blockquote, q { quotes: none; }
+
+/* 重置嵌套引用的引号类型 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000315}}
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+/* 重置嵌套引用*/
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000316}}
+input, select, textarea, button { vertical-align: middle; }
+
+/* 重置表单控件垂直居中*/
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000317}}
+button { border: 0 none; background-color: transparent; cursor: pointer; }
+
+/* 重置表单button按钮效果 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000318}}
+body { background: #fff; }
+
+/* 重置body 页面背景为白色 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000319}}
+body, th, td, input, select, textarea, button { font-size: 12px; line-height: 1; font-family: "微软雅黑", "黑体","宋体"; color: #666; }
+
+/* 重置页面文字属性 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000320}}
+a { color: #666; text-decoration: none; }
+
+/* 重置链接a标签 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000321}}
+a:active, a:hover { text-decoration: none; }
+
+/* 重置链接a标签的鼠标滑动效果 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000322}}
+address, caption, cite, code, dfn, em, var { font-style: normal; font-weight: normal; }
+
+/* 重置样式标签的样式 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000323}}
+caption { display: none; }
+
+/* 重置表格标题为隐藏 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000324}}
+table { width: 100%; border-collapse: collapse; border-spacing: 0; table-layout: fixed; }
+
+/* 重置table属性 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000325}}
+img { vertical-align: top; }
+
+/* 图片在当前行内的垂直位置 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000327}}
+*::selection { background: #ffb527; color: #006eaa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000328}}
+*::-moz-selection { background: #ffb527; color: #006eaa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000329}}
+*::-webkit-selection { background: #ffb527; color: #006eaa; }
+
+/* 页面设置 */
+/* 取消a标签点击后的虚线框 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000334}}
+a { outline: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000335}}
+a:active { star: expression(this.onFocus=this.blur()); }
+
+/* 设置页面文字等在拖动鼠标选中情况下的背景色与文字颜色 */
+/*   
+::selection {color: #fff;background-color: #4C6E78;}      
+::-moz-selection {color: #fff;background-color: #4C6E78;}   
+*/
+/*清除浮动*/
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000344}}
+.clear { clear: both; }
+
+/*清除浮动--推荐使用*/
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000347}}
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000348}}
+.clearfix:after { clear: both; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000349}}
+hr { width: 100%; background-color: #e7e7e7; color: #e7e7e7; border: none; border-bottom: 1px solid #e7e7e7; margin: 52px 0; }
+
+/*-----------------------------------------------------------------------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000394}}
+.comWidth { width: 960px; margin: 0 auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000396}}
+.oblique-line1 { margin-left: 365px; position: absolute; top: -15px; display: inline-block; background-color: #fff; height: 160px; width: 1px; transform: rotate(30deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -webkit-transform: rotate(30deg); -o-transform: rotate(30deg); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003100}}
+.oblique-line2 { margin-left: 570px; position: absolute; top: -15px; display: inline-block; background-color: #fff; height: 160px; width: 1px; transform: rotate(30deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -webkit-transform: rotate(30deg); -o-transform: rotate(30deg); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003104}}
+.oblique-line3 { margin-left: 760px; position: absolute; top: -15px; display: inline-block; background-color: #fff; height: 160px; width: 1px; transform: rotate(30deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -webkit-transform: rotate(30deg); -o-transform: rotate(30deg); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003108}}
+#header { background-color: #fff; width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003111}}
+#header .index-logo { float: left; padding: 34px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003114}}
+#header .index-logo img { float: left; width: 259px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003118}}
+#header .index-logo .line { margin: 0 16px; display: inline-block; background-color: #e8e8e8; float: left; width: 1px; height: 52px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003127}}
+#header .slogan { float: left; font-family: "微软雅黑", "Microsoft YaHei", Tahoma, Verdana, STHeiTi, simsun, sans-serif; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003130}}
+#header .slogan h2 { font-size: 24px; padding: 6px 0; color: #fa8100; font-weight: lighter; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003136}}
+#header .slogan span { font-size: 14px; font-weight: lighter; color: #666666; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003142}}
+#header .header-qrCode { padding: 34px 0; float: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003145}}
+#header .header-qrCode img { float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003148}}
+#header .header-qrCode .header-contact { float: right; margin-left: 12px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003151}}
+#header .header-qrCode .header-contact span { padding: 6px 0; display: inline-block; color: #333; font-size: 16px; font-weight: lighter; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003158}}
+#header .header-qrCode .header-contact h3 { color: #005c9d; font-size: 24px; font-family: Impact; font-weight: lighter; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003166}}
+#header .header-nav { height: 50px; background-color: #00659c; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003169}}
+#header .header-nav ul li { float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003171}}
+#header .header-nav ul li a { padding: 0 32px; font-size: 14px; color: white; line-height: 50px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003177}}
+#header .header-nav ul li:hover { background-color: #004b8b; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003180}}
+#header .header-nav ul li.active { background-color: #004b8b; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003186}}
+#header .header-nav ul li + li a { border-left: 1px solid #fff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003194}}
+.swiper-container { width: 100%; height: 480px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003198}}
+.swiper-container2 { width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003201}}
+.swiper-slide { float: left; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003204}}
+#index-banner { background-color: #f6f6f6; position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003208}}
+#index-banner .feature .feature-box { z-index: 999; position: relative; top: -26px; width: 960px; overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003214}}
+#index-banner .feature .feature-box ul { width: calc( 104px / 3 + 960px); width: 994.6666666666667px; overflow: hidden; zoom: 1; /* 触发IE的Layout */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003220}}
+#index-banner .feature .feature-box ul li .box { background-color: #006eaa; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003222}}
+#index-banner .feature .feature-box ul li .box .icon { width: 214px; height: 164px; display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003227}}
+#index-banner .feature .feature-box ul li .box .icon1 { background: url(../images/icon1.png) center no-repeat; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003230}}
+#index-banner .feature .feature-box ul li .box .icon2 { background: url(../images/icon2.png) center no-repeat; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003233}}
+#index-banner .feature .feature-box ul li .box .icon3 { background: url(../images/icon3.png) center no-repeat; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003236}}
+#index-banner .feature .feature-box ul li .box .icon4 { background: url(../images/icon4.png) center no-repeat; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003240}}
+#index-banner .feature .feature-box ul li { float: left; width: 214px; margin-right: -webkit-calc( 104px / 3); margin-right: -moz-calc( 104px / 3); margin-right: calc( 104px / 3); margin-right: 33px; text-align: center; background-color: #fff; margin-bottom: 44px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003250}}
+#index-banner .feature .feature-box ul li h3 { color: #333; margin: 16px 0 4px; font-size: 20px; font-weight: bold; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003256}}
+#index-banner .feature .feature-box ul li span { color: #999; display: block; padding-bottom: 26px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003262}}
+#index-banner .feature .feature-box .con-left-img { position: absolute; display: inline-block; top: 100px; left: -64px; background-image: url(../images/con-left.png); width: 21px; height: 42px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003271}}
+#index-banner .feature .feature-box .con-right-img { position: absolute; display: inline-block; top: 100px; right: -64px; background-image: url(../images/con-right.png); width: 21px; height: 42px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003285}}
+.section-title h2 { margin-bottom: 34px; text-align: left; font-family: "微软雅黑", "Microsoft YaHei", Tahoma, Verdana, STHeiTi, simsun, sans-serif; font-size: 24px; color: #006eaa; background: url(../images/title-bg.png) right no-repeat; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003292}}
+.section-title h2 span { margin-left: 8px; text-align: left; font-size: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-transform: Uppercase; color: #999; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003305}}
+#index-introduction { padding: 48px 0 74px; width: 960px; overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003309}}
+#index-introduction .info { font-size: 14px; color: #666; line-height: 24px; margin-bottom: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003315}}
+#index-introduction ul { width: 984px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003318}}
+#index-introduction ul li { width: 302px; float: left; margin-right: 24px; margin-right: -webkit-calc( ( 960px - 304px * 3 ) / 2); margin-right: -moz-calc( ( 960px - 304px * 3 ) / 2); margin-right: calc( ( 960px - 304px * 3 ) / 2); border: 1px #e8e8e8 solid; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003326}}
+#index-introduction ul li div { background-color: #006eaa; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003328}}
+#index-introduction ul li div h3 { padding: 15px 25px; color: #fff; font-size: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003332}}
+#index-introduction ul li div h3 span { color: #fff; font-size: 12px; display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003339}}
+#index-introduction ul li p { padding: 15px 24px; height: 40px; line-height: 22px; color: #999; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003347}}
+#index-service { background-color: #006eaa; height: 104px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003350}}
+#index-service .section-title-blue { position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003352}}
+#index-service .section-title-blue h2 { padding: 40px 0; width: 290px; text-align: left; font-family: "微软雅黑", "Microsoft YaHei", Tahoma, Verdana, STHeiTi, simsun, sans-serif; font-size: 24px; color: #fff; display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003360}}
+#index-service .section-title-blue h2 span { margin-left: 8px; text-align: left; font-weight: normal; font-size: 20px; font-family: Arial, Helvetica, sans-serif; text-transform: Uppercase; color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003370}}
+#index-service .section-title-blue .month1 { margin-left: 425px; top: -35px; position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000377}}
+#index-service .section-title-blue .month1 p { position: absolute; text-align: center; display: inline-block; top: -50px; font-size: 18px; color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000382}}
+#index-service .section-title-blue .month1 p .month-nub { color: #ffb31f; font-size: 45px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000386}}
+#index-service .section-title-blue .month1 p span { color: #fff; font-size: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003374}}
+#index-service .section-title-blue .month2 { margin-left: 625px; top: -35px; position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000377}}
+#index-service .section-title-blue .month2 p { position: absolute; text-align: center; display: inline-block; top: -50px; font-size: 18px; color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000382}}
+#index-service .section-title-blue .month2 p .month-nub { color: #ffb31f; font-size: 45px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000386}}
+#index-service .section-title-blue .month2 p span { color: #fff; font-size: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003378}}
+#index-service .section-title-blue .month3 { margin-left: 820px; top: -35px; position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000377}}
+#index-service .section-title-blue .month3 p { position: absolute; text-align: center; display: inline-block; top: -50px; font-size: 18px; color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000382}}
+#index-service .section-title-blue .month3 p .month-nub { color: #ffb31f; font-size: 45px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\0000386}}
+#index-service .section-title-blue .month3 p span { color: #fff; font-size: 14px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003384}}
+#index-case { position: relative; margin-top: 70px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003387}}
+#index-case .section-title { position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003414}}
+#index-case .comWidth { width: 960px; overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003418}}
+#index-case ul { margin-top: 24px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003425}}
+#index-case ul li h3 { padding: 20px 0 10px; font-size: 14px; color: #333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003430}}
+#index-case ul li p { color: #999; line-height: 18px; width: 296px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003439}}
+#index-news h2 { width: 880px; position: relative; background-position-x: 350px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003443}}
+#index-news h2 .new-more { font-weight: 100; font-size: 12px; color: #fa8100; position: absolute; top: 5px; left: 905px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003450}}
+#index-news h2 .new-more:hover { text-decoration: underline; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003455}}
+#index-news .newLiset { float: left; width: 540px; display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003459}}
+#index-news .newLiset ul li + li { margin: 45px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003462}}
+#index-news .newLiset ul li { position: relative; left: 105px; width: calc(100% - 105px); width: 435px; margin: 0 0 16px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003468}}
+#index-news .newLiset ul li img { position: absolute; max-width: 90px; left: -105px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003473}}
+#index-news .newLiset ul li h3 { padding: 10px 0; font-size: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003476}}
+#index-news .newLiset ul li h3 a { color: #333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003478}}
+#index-news .newLiset ul li h3 a:hover { color: #006eaa; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003483}}
+#index-news .newLiset ul li p { line-height: 16px; color: #999; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003487}}
+#index-news .newLiset ul li i { position: absolute; left: -105px; top: 94px; border-bottom: 1px dotted #ccc; display: inline-block; width: 540px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003497}}
+#index-news .newSlider { float: right; display: inline-block; width: 370px; height: 318px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003502}}
+#index-news .newSlider ul { width: 370px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003507}}
+#index-news .newSlider ul li { text-align: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003511}}
+#index-news .newSlider .newSlider-item { position: relative; background-color: #006eaa; height: 40px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003515}}
+#index-news .newSlider .newSlider-item a { margin: 0 15px; width: 255px; line-height: 40px; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003525}}
+#index-news .newSlider .newSlider-item .item { position: absolute; top: 13px; right: 15px; display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003530}}
+#index-news .newSlider .newSlider-item .item span { margin: 0 2px; display: inline-block; width: 13px; height: 13px; background-color: #fff; border-radius: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003537}}
+#index-news .newSlider .newSlider-item .item span.active { background-color: #fa8100; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003545}}
+#index-client { margin-top: 60px; margin-bottom: 24px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003549}}
+#index-client ul { flex-wrap: wrap; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003551}}
+#index-client ul li { justify-content: space-between; display: inline-block; margin-bottom: 4px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003555}}
+#index-client ul li img { border: 1px solid #eaeaea; max-width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003562}}
+#footer { margin-top: 76px; color: #fff; background-color: #006eaa; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003566}}
+#footer .phone { margin-left: 64px; padding: 16px 0; display: inline-block; position: relative; float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003572}}
+#footer .phone img { position: absolute; left: -64px; width: 44px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003577}}
+#footer .phone h3 { font-size: 20px; font-weight: bold; line-height: 28px; font-family: Georgia; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003583}}
+#footer .phone p { font-size: 12px; color: #c4eaff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003588}}
+#footer .address { float: left; margin: 16px 0; height: 40px; margin-left: 17px; border-left: 1px solid #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/BaiduNetdiskDownload\/WEB\/sass\/index\.scss}line{font-family:\00003594}}
+#footer .address p { margin-left: 17px; line-height: 20px; color: #c4eaff; }
+
+/*# sourceMappingURL=index.css.map */
