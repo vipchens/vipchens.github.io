@@ -417,6 +417,164 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/15/josn-interaction/" itemprop="url">
+                  前后端数据交互方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-15T18:14:48+08:00" content="2017-01-15">
+              2017-01-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/交互/" itemprop="url" rel="index">
+                    <span itemprop="name">交互</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/15/josn-interaction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/15/josn-interaction/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/15/josn-interaction/" class="leancloud_visitors" data-flag-title="前后端数据交互方法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近在看前后端交互的文章，有人总结了几种常用的前后端数据交互方法，并给出使用建议，以提高前后端协同开发的效率。（以下内容属于转载学习使用,部分内容加入了自己的感受）原文地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/nimojs/blog/issues/13">《前后端数据交互方法》</a></p>
+<p>目录:</p>
+<ol>
+<li>HTML赋值</li>
+<li>JS赋值</li>
+<li>script填充JSON</li>
+<li>AJAX获取JSON</li>
+<li>WebSocket实时传输数据</li>
+<li>总结</li>
+</ol>
+<h2 id="HTML赋值"><a href="#HTML赋值" class="headerlink" title="HTML赋值"></a>HTML赋值</h2><p>输出到 Element 的 value 或 data-name<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;hidden&quot; value=&quot;&lt;?php echo $user_avatar;?&gt;&quot; /&gt;</div><div class="line">&lt;div data-value=&quot;&lt;?php echo $user_avatar;?&gt;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>渲染结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;hidden&quot; value=&quot;https://avatars1.githubusercontent.com/u/3949015?v=3&amp;s=40&quot; /&gt;</div><div class="line">&lt;div data-avatar=&quot;https://avatars1.githubusercontent.com/u/3949015?v=3&amp;s=40&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>使用 JQ 获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;input&apos;).val();</div><div class="line"></div><div class="line">$(&apos;div&apos;).data(&apos;avatar&apos;);</div><div class="line"></div><div class="line">//HTML 5 增加了一项新功能是自定义数据属性 ，也就是  data-* 自定义属性。在HTML5中我们可以使用以 data- 为前缀来设置我们需要的自定义属性，来进行一些数据的存放。当然高级浏览器下可通过脚本进行定义和数据存取。在项目实践中非常有用。</div><div class="line">//所以$(&apos;div&apos;).data(&apos;avatar&apos;);的意思是用.data()方法获取div的data-avatar属性值</div></pre></td></tr></table></figure></p>
+<p>优点：<br>不占用全局变量，由 JS 自由获取。</p>
+<p>使用建议：</p>
+<p>适合传递简单数据，也非常适合多个简单数据与 Element 绑定关系。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">&lt;li&gt;nimo11 &lt;span data-userid=&quot;1&quot; &gt;删除&lt;/span&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;nimo22 &lt;span data-userid=&quot;2&quot; &gt;删除&lt;/span&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;nimo33 &lt;span data-userid=&quot;3&quot; &gt;删除&lt;/span&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;nimo44 &lt;span data-userid=&quot;4&quot; &gt;删除&lt;/span&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;nimo55 &lt;span data-userid=&quot;5&quot; &gt;删除&lt;/span&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;script&gt;</div><div class="line">$(&apos;span&apos;).on(&apos;click&apos;,function()&#123;</div><div class="line">    $.post(&apos;/ajax/remove/&apos;,$(this).data(&apos;userid&apos;),function(data)&#123;</div><div class="line">        // ...</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/15/josn-interaction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/12/css-note-5-css3-transition2/" itemprop="url">
                   css3幽灵按钮效果初体验
                 </a>
@@ -1580,150 +1738,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/03/JavaScript-note-8-DOM-insert-child-element/" itemprop="url">
-                  JavaScript学习笔记7 DOM为指定元素插入子元素的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T21:18:09+08:00" content="2016-09-03">
-              2016-09-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/03/JavaScript-note-8-DOM-insert-child-element/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/JavaScript-note-8-DOM-insert-child-element/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/03/JavaScript-note-8-DOM-insert-child-element/" class="leancloud_visitors" data-flag-title="JavaScript学习笔记7 DOM为指定元素插入子元素的方法">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>书中提供了一个小的案例来讲述DOM控制页面节点树的方法，我将这个过程比较详细的写了一遍，确实很实用！虽然使用方法比innerHTML繁琐些，但是可以非常精确控制每一个节点的位置，还可以把这个节点做成一个全局变量（这个是我看到这里自己总结的，应该是成立的），以后随时可以调用！</p>
-<p>下面内容包括代码，我都是在markdown编辑器下手敲的，目的是为了在这个过程中，能再写一遍代码，对这些代码能加深印象<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/03/JavaScript-note-8-DOM-insert-child-element/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1769,7 +1783,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1777,7 +1791,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1786,7 +1800,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
