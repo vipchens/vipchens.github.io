@@ -1,0 +1,713 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记,HTML5," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RuoFei Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="新增的input输入类型email定义用于email地址的字段（带有自动判断是否为email地址的功能）1234&amp;lt;form action=&amp;quot;#&amp;quot; method=&amp;quot;POST&amp;quot;&amp;gt;    &amp;lt;input type=&amp;quot;email&amp;quot;&amp;quot; name=&amp;quot;email&amp;quot; value=&amp;quot;email&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 表单">
+<meta property="og:url" content="http://yoursite.com/2016/11/05/html5-note2-form/index.html">
+<meta property="og:site_name" content="RuoFei Blog">
+<meta property="og:description" content="新增的input输入类型email定义用于email地址的字段（带有自动判断是否为email地址的功能）1234&amp;lt;form action=&amp;quot;#&amp;quot; method=&amp;quot;POST&amp;quot;&amp;gt;    &amp;lt;input type=&amp;quot;email&amp;quot;&amp;quot; name=&amp;quot;email&amp;quot; value=&amp;quot;email&amp;quo">
+<meta property="og:image" content="http://p1.bqimg.com/567571/a51625e6807aaf59.png">
+<meta property="og:image" content="http://p1.bqimg.com/567571/f5be3ac8b3dda3c9.png">
+<meta property="og:image" content="http://p1.bqimg.com/567571/148208dd28101f7e.gif">
+<meta property="og:image" content="http://p1.bpimg.com/567571/a05b7ebcb9fa00b9.gif">
+<meta property="og:image" content="http://p1.bpimg.com/567571/311c6147beef4829.png">
+<meta property="og:image" content="http://p1.bpimg.com/567571/07ac6df9db5e966e.png">
+<meta property="og:image" content="http://p1.bpimg.com/567571/f6c0cb25f1c647d7.png">
+<meta property="og:image" content="http://p1.bpimg.com/567571/3db3793408ab3caf.png">
+<meta property="og:image" content="http://p1.bqimg.com/567571/ba1b3e20b23f9ea0.png">
+<meta property="og:updated_time" content="2017-02-05T09:23:49.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5 表单">
+<meta name="twitter:description" content="新增的input输入类型email定义用于email地址的字段（带有自动判断是否为email地址的功能）1234&amp;lt;form action=&amp;quot;#&amp;quot; method=&amp;quot;POST&amp;quot;&amp;gt;    &amp;lt;input type=&amp;quot;email&amp;quot;&amp;quot; name=&amp;quot;email&amp;quot; value=&amp;quot;email&amp;quo">
+<meta name="twitter:image" content="http://p1.bqimg.com/567571/a51625e6807aaf59.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/05/html5-note2-form/"/>
+
+  <title> HTML5 表单 | RuoFei Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RuoFei Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">小白前端学习之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5 表单
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-05T21:32:18+08:00" content="2016-11-05">
+              2016-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/05/html5-note2-form/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/05/html5-note2-form/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="新增的input输入类型"><a href="#新增的input输入类型" class="headerlink" title="新增的input输入类型"></a>新增的input输入类型</h2><h2 id="email"><a href="#email" class="headerlink" title="email"></a>email</h2><p>定义用于email地址的字段<br>（带有自动判断是否为email地址的功能）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</div><div class="line">    &lt;input type=&quot;email&quot;&quot; name=&quot;email&quot; value=&quot;email&quot;/&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&quot; name=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://p1.bqimg.com/567571/a51625e6807aaf59.png" alt=""><br>（这个提示会根据系统的语言，自动选择语言，比如系统是英语，提示则是英语）</p>
+<h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><p>定义用于url地址的字段<br>（带有自动判断是否为url地址的功能）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</div><div class="line">    &lt;input type=&quot;url&quot;&quot; name=&quot;url&quot; value=&quot;url&quot;/&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&quot; name=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://p1.bqimg.com/567571/f5be3ac8b3dda3c9.png" alt=""></p>
+<a id="more"></a>
+<h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><p>number是判断输入数字的，可以设置最大值和最小值，还有选值的范围<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</div><div class="line">    &lt;input type=&quot;number&quot;&quot; name=&quot;number&quot; value=&quot;2&quot; max=&quot;100&quot; min=&quot;1&quot; step=&quot;3&quot;/&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&quot; name=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://p1.bqimg.com/567571/148208dd28101f7e.gif" alt=""></p>
+<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>range也是选值数字的，但是是以滑块的形式选值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</div><div class="line">    &lt;input type=&quot;range&quot;&quot; name=&quot;range&quot; value=&quot;30&quot; max=&quot;100&quot; min=&quot;1&quot; step=&quot;20&quot;/&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&quot; name=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://p1.bpimg.com/567571/a05b7ebcb9fa00b9.gif" alt=""></p>
+<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><p>HTML5 拥有多个可供选取日期和时间的新输入类型：<br>date - 选取日、月、年<br>month - 选取月、年<br>week - 选取周和年<br>time - 选取时间（小时和分钟）<br>datetime - 选取时间、日、月、年（UTC 时间）<br>datetime-local - 选取时间、日、月、年（本地时间）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</div><div class="line">    &lt;input type=&quot;date&quot; name=&quot;date&quot; /&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&quot; name=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p>下面的属性来规定对数字类型的限定：<br><img src="http://p1.bpimg.com/567571/311c6147beef4829.png" alt=""></p>
+<h2 id="search"><a href="#search" class="headerlink" title="search"></a>search</h2><p>search 类型用于搜索域，比如站点搜索或 Google 搜索。<br>search 域显示为常规的文本域。</p>
+<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><p>color选择器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</div><div class="line">    &lt;input type=&quot;color&quot; name=&quot;color&quot; /&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&quot; name=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://p1.bpimg.com/567571/07ac6df9db5e966e.png" alt=""></p>
+<h2 id="新增的input属性"><a href="#新增的input属性" class="headerlink" title="新增的input属性"></a>新增的input属性</h2><h2 id="autocomplete"><a href="#autocomplete" class="headerlink" title="autocomplete"></a>autocomplete</h2><p>规定input元素输入字段是否启用自动完成功能（自动保存用户输入过的内容）</p>
+<h2 id="autofocus"><a href="#autofocus" class="headerlink" title="autofocus"></a>autofocus</h2><p>当页面加载完成后是否自动获取焦点</p>
+<h2 id="form"><a href="#form" class="headerlink" title="form"></a>form</h2><p>这个属性可以使input标签不用放在<form></form>内部</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;form id=&quot;nameSubmit&quot; action=&quot;#&quot; method=&quot;get&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; name=&quot;myName&quot; value=&quot;姓名&quot;&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;提交&quot;&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;input type=&quot;text&quot; form=&quot;nameSubmit&quot; name=&quot;myName&quot; value=&quot;姓名&quot;&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="新增的表单重写属性"><a href="#新增的表单重写属性" class="headerlink" title="新增的表单重写属性"></a>新增的表单重写属性</h2><p>可以动态的修改这些属性的值<br><img src="http://p1.bpimg.com/567571/f6c0cb25f1c647d7.png" alt=""></p>
+<h2 id="新增的height和width属性"><a href="#新增的height和width属性" class="headerlink" title="新增的height和width属性"></a>新增的height和width属性</h2><p><img src="http://p1.bpimg.com/567571/3db3793408ab3caf.png" alt=""></p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>属性引用datalist元素，其中包含input元素的预定义选项，list的值为datalist的id<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;datalist id=&quot;numList&quot;&gt;</div><div class="line">    &lt;option value=&quot;1111&quot;&gt;</div><div class="line">    &lt;option value=&quot;2222&quot;&gt;</div><div class="line">    &lt;option value=&quot;3333&quot;&gt;</div><div class="line">&lt;/datalist&gt;</div><div class="line"></div><div class="line">&lt;form id=&quot;nameSubmit&quot; action=&quot;#&quot; method=&quot;get&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; name=&quot;myNumber&quot; list=&quot;numList&quot;&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;提交&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://p1.bqimg.com/567571/ba1b3e20b23f9ea0.png" alt=""></p>
+<h2 id="最大最小值、步长属性"><a href="#最大最小值、步长属性" class="headerlink" title="最大最小值、步长属性"></a>最大最小值、步长属性</h2><p>min:输入框的最小值<br>max:输入框的最大值<br>step:输入框规定合法的数字间隔，用于判断和快捷选值</p>
+<h2 id="multiple"><a href="#multiple" class="headerlink" title="multiple"></a>multiple</h2><p>允许用户输入到input元素多个值（多个文件上传）</p>
+<h2 id="pattern"><a href="#pattern" class="headerlink" title="pattern"></a>pattern</h2><p>判断input元素的值是否符合正则表达式</p>
+<h2 id="placeholder"><a href="#placeholder" class="headerlink" title="placeholder"></a>placeholder</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/05/html5-note1-label/" rel="next" title="HTML5 常用的语义标签">
+                <i class="fa fa-chevron-left"></i> HTML5 常用的语义标签
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/10/css-note-4-css3-transition/" rel="prev" title="css3里transition和transform回顾练习">
+                css3里transition和transform回顾练习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/05/html5-note2-form/"
+     data-title="HTML5 表单"
+     data-content=""
+     data-url="http://yoursite.com/2016/11/05/html5-note2-form/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/05/html5-note2-form/"
+           data-title="HTML5 表单" data-url="http://yoursite.com/2016/11/05/html5-note2-form/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Ruofei" />
+          <p class="site-author-name" itemprop="name">Ruofei</p>
+          <p class="site-description motion-element" itemprop="description">小白前端学习之路</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新增的input输入类型"><span class="nav-number">1.</span> <span class="nav-text">新增的input输入类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#email"><span class="nav-number">2.</span> <span class="nav-text">email</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url"><span class="nav-number">3.</span> <span class="nav-text">url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number"><span class="nav-number">4.</span> <span class="nav-text">number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range"><span class="nav-number">5.</span> <span class="nav-text">range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date"><span class="nav-number">6.</span> <span class="nav-text">date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search"><span class="nav-number">7.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#color"><span class="nav-number">8.</span> <span class="nav-text">color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增的input属性"><span class="nav-number">9.</span> <span class="nav-text">新增的input属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#autocomplete"><span class="nav-number">10.</span> <span class="nav-text">autocomplete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#autofocus"><span class="nav-number">11.</span> <span class="nav-text">autofocus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#form"><span class="nav-number">12.</span> <span class="nav-text">form</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增的表单重写属性"><span class="nav-number">13.</span> <span class="nav-text">新增的表单重写属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增的height和width属性"><span class="nav-number">14.</span> <span class="nav-text">新增的height和width属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list"><span class="nav-number">15.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大最小值、步长属性"><span class="nav-number">16.</span> <span class="nav-text">最大最小值、步长属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple"><span class="nav-number">17.</span> <span class="nav-text">multiple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pattern"><span class="nav-number">18.</span> <span class="nav-text">pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placeholder"><span class="nav-number">19.</span> <span class="nav-text">placeholder</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hualinblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

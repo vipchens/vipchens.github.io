@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RuoFei Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="书中提供了一个小的案例来讲述DOM控制页面节点树的方法，我将这个过程比较详细的写了一遍，确实很实用！虽然使用方法比innerHTML繁琐些，但是可以非常精确控制每一个节点的位置，还可以把这个节点做成一个全局变量（这个是我看到这里自己总结的，应该是成立的），以后随时可以调用！
+下面内容包括代码，我都是在markdown编辑器下手敲的，目的是为了在这个过程中，能再写一遍代码，对这些代码能加深印象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript学习笔记7 DOM为指定元素插入子元素的方法">
+<meta property="og:url" content="http://yoursite.com/2016/09/03/JavaScript-note-8-DOM-insert-child-element/index.html">
+<meta property="og:site_name" content="RuoFei Blog">
+<meta property="og:description" content="书中提供了一个小的案例来讲述DOM控制页面节点树的方法，我将这个过程比较详细的写了一遍，确实很实用！虽然使用方法比innerHTML繁琐些，但是可以非常精确控制每一个节点的位置，还可以把这个节点做成一个全局变量（这个是我看到这里自己总结的，应该是成立的），以后随时可以调用！
+下面内容包括代码，我都是在markdown编辑器下手敲的，目的是为了在这个过程中，能再写一遍代码，对这些代码能加深印象">
+<meta property="og:image" content="http://obtw9lzb6.bkt.clouddn.com/16-9-3/39305542.jpg">
+<meta property="og:image" content="http://obtw9lzb6.bkt.clouddn.com/16-9-3/34137722.jpg">
+<meta property="og:updated_time" content="2017-02-05T09:23:46.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript学习笔记7 DOM为指定元素插入子元素的方法">
+<meta name="twitter:description" content="书中提供了一个小的案例来讲述DOM控制页面节点树的方法，我将这个过程比较详细的写了一遍，确实很实用！虽然使用方法比innerHTML繁琐些，但是可以非常精确控制每一个节点的位置，还可以把这个节点做成一个全局变量（这个是我看到这里自己总结的，应该是成立的），以后随时可以调用！
+下面内容包括代码，我都是在markdown编辑器下手敲的，目的是为了在这个过程中，能再写一遍代码，对这些代码能加深印象">
+<meta name="twitter:image" content="http://obtw9lzb6.bkt.clouddn.com/16-9-3/39305542.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/03/JavaScript-note-8-DOM-insert-child-element/"/>
+
+  <title> JavaScript学习笔记7 DOM为指定元素插入子元素的方法 | RuoFei Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RuoFei Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">小白前端学习之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript学习笔记7 DOM为指定元素插入子元素的方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T21:18:09+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/03/JavaScript-note-8-DOM-insert-child-element/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/JavaScript-note-8-DOM-insert-child-element/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>书中提供了一个小的案例来讲述DOM控制页面节点树的方法，我将这个过程比较详细的写了一遍，确实很实用！虽然使用方法比innerHTML繁琐些，但是可以非常精确控制每一个节点的位置，还可以把这个节点做成一个全局变量（这个是我看到这里自己总结的，应该是成立的），以后随时可以调用！</p>
+<p>下面内容包括代码，我都是在markdown编辑器下手敲的，目的是为了在这个过程中，能再写一遍代码，对这些代码能加深印象<br><a id="more"></a><br>如果文字敲错了大家就当没看见，代码敲错了我相信能看出来的不会看我这种小白的blog，看不出来复制过去报错的，请留言哈。</p>
+<h2 id="createElement方法"><a href="#createElement方法" class="headerlink" title="createElement方法"></a>createElement方法</h2><p>createElement方法是在页面中创建一个新的元素，但这个元素是没有父元素的，它只是游荡在这个脚本中，不会被页面显示出来但实际上是存在的。<br>格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.createElement(nodeName);</div></pre></td></tr></table></figure></p>
+<p>例如在一个空的HTML文件中创建一个元素p：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">document.createElement(&quot;p&quot;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>书中讲到，创建了一个元素后把它赋值给一个变量是一个不错的选择，这样方便后续调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var para = document.createElement(&quot;p&quot;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="appendChild方法"><a href="#appendChild方法" class="headerlink" title="appendChild方法"></a>appendChild方法</h2><p>这个方法可以把createElement创建的元素插入页面中某个指定的元素节点下，使其成为这个元素的子节点。</p>
+<p>格式：parent.appendChild(child);</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;testdiv&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>上面这个HTML是一个空的ID为testdiv的div，我想将上面创建的那个P元素插入这个div中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;testdiv&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var para = document.createElement(&quot;p&quot;);</div><div class="line">document.getElementById(&quot;testdiv&quot;).appendChild(para);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>得到的结果是（我在浏览器中F12截图的）：<br><img src="http://obtw9lzb6.bkt.clouddn.com/16-9-3/39305542.jpg" alt=""><br>可以看到，这个空的P标签已经成功插入到ID为testdiv的div标签下，成为它的子元素了。但这么写我觉得有点太长了，可以换成下面的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;testdiv&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var para = document.createElement(&quot;p&quot;);</div><div class="line">var testdiv = document.getElementById(&quot;testdiv&quot;);</div><div class="line">testdiv.appendChild(para);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>个人觉得这种写法更容易调试代码，灵活性更高些！</p>
+<blockquote>
+<p>切记：<code>parent.appendChild(child);</code>中的<code>child</code>是不带引号的，因为我在上面已经把这个元素存入了一个变量中，我在写的时候就因为这个问题，撒泼打滚的一个字一个字的对着书本的代码查了好半天才反应过来。</p>
+</blockquote>
+<p>当然，我是小白才会因为这种基础的常识问题卡住，大神们请直接忽略！</p>
+<h2 id="createTextNode方法"><a href="#createTextNode方法" class="headerlink" title="createTextNode方法"></a>createTextNode方法</h2><p>上面讲的使用createElement创建一个空的元素p，并用appendChild插入了指定的div中，现在就可以使用createTextNode来为这个p元素创建内容，创建的形式也是和createElement一样，出来的也是一个浮游的文本元素。</p>
+<p>格式：document.createTextNode(text);</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.createTextNode(&quot;This is mt blog!&quot;);</div><div class="line">//var text = document.createTextNode(&quot;This is mt blog!&quot;);</div><div class="line">//我一般习惯在创建元素的时候马上赋值给一个变量，方便后面使用</div></pre></td></tr></table></figure></p>
+<p>文本内容创建好了之后，就可以再使用appendChild方法，插入到p标签下了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var text = document.createTextNode(&quot;This is mt blog!&quot;);</div><div class="line">para.appendChild(text);</div></pre></td></tr></table></figure>
+<p>整个过程完整的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;testdiv&quot;&gt;</div><div class="line">	</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">//创建一个空的p元素并赋值给变量para</div><div class="line">var para = document.createElement(&quot;p&quot;);</div><div class="line"></div><div class="line">//找到指定的id的div</div><div class="line">var testdiv = document.getElementById(&quot;testdiv&quot;);</div><div class="line"></div><div class="line">//将这个para插入到指定的div下</div><div class="line">testdiv.appendChild(para);</div><div class="line"></div><div class="line">//创建一个文本元素，值为：This is my blog</div><div class="line">var text = document.createTextNode(&quot;This is my blog!&quot;);</div><div class="line"></div><div class="line">//将这个文本元素插入到p标签下</div><div class="line">para.appendChild(text);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>最终的显示结果如下：<br><img src="http://obtw9lzb6.bkt.clouddn.com/16-9-3/34137722.jpg" alt=""></p>
+<p>排版需要，我把浏览器放大了，实际上的<strong>This is my blog!</strong>显示出来是默认的字号和字体！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/css-note-1-css-maintain/" rel="next" title="如何提高CSS的可维护性">
+                <i class="fa fa-chevron-left"></i> 如何提高CSS的可维护性
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/04/css-note-2-css-center/" rel="prev" title="CSS垂直居中">
+                CSS垂直居中 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/03/JavaScript-note-8-DOM-insert-child-element/"
+     data-title="JavaScript学习笔记7 DOM为指定元素插入子元素的方法"
+     data-content=""
+     data-url="http://yoursite.com/2016/09/03/JavaScript-note-8-DOM-insert-child-element/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/03/JavaScript-note-8-DOM-insert-child-element/"
+           data-title="JavaScript学习笔记7 DOM为指定元素插入子元素的方法" data-url="http://yoursite.com/2016/09/03/JavaScript-note-8-DOM-insert-child-element/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Ruofei" />
+          <p class="site-author-name" itemprop="name">Ruofei</p>
+          <p class="site-description motion-element" itemprop="description">小白前端学习之路</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#createElement方法"><span class="nav-number">1.</span> <span class="nav-text">createElement方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appendChild方法"><span class="nav-number">2.</span> <span class="nav-text">appendChild方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createTextNode方法"><span class="nav-number">3.</span> <span class="nav-text">createTextNode方法</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hualinblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

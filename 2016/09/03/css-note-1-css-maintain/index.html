@@ -1,0 +1,705 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记,css," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RuoFei Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="为CSS正确的命名可以提高代码的可读性，便于后期查找修改。下面记录一些常用的手段：
+命名与备注命名是提高代码可读性的第一步，也是最重要的一步。我接触css的时候命名的问题困扰了我很久，尤其是我这种对英语一窍不通的人来说，当时我就是胡乱命名的，后来看多了别人的代码，才知道这东西是可以统一化的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何提高CSS的可维护性">
+<meta property="og:url" content="http://yoursite.com/2016/09/03/css-note-1-css-maintain/index.html">
+<meta property="og:site_name" content="RuoFei Blog">
+<meta property="og:description" content="为CSS正确的命名可以提高代码的可读性，便于后期查找修改。下面记录一些常用的手段：
+命名与备注命名是提高代码可读性的第一步，也是最重要的一步。我接触css的时候命名的问题困扰了我很久，尤其是我这种对英语一窍不通的人来说，当时我就是胡乱命名的，后来看多了别人的代码，才知道这东西是可以统一化的。">
+<meta property="og:image" content="http://i2.buimg.com/567571/175425de75bc4706.png">
+<meta property="og:image" content="http://i4.buimg.com/567571/6ba4d5d96ffcf269.png">
+<meta property="og:updated_time" content="2017-02-05T09:24:01.349Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何提高CSS的可维护性">
+<meta name="twitter:description" content="为CSS正确的命名可以提高代码的可读性，便于后期查找修改。下面记录一些常用的手段：
+命名与备注命名是提高代码可读性的第一步，也是最重要的一步。我接触css的时候命名的问题困扰了我很久，尤其是我这种对英语一窍不通的人来说，当时我就是胡乱命名的，后来看多了别人的代码，才知道这东西是可以统一化的。">
+<meta name="twitter:image" content="http://i2.buimg.com/567571/175425de75bc4706.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/03/css-note-1-css-maintain/"/>
+
+  <title> 如何提高CSS的可维护性 | RuoFei Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RuoFei Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">小白前端学习之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何提高CSS的可维护性
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T00:12:42+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/03/css-note-1-css-maintain/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/css-note-1-css-maintain/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>为CSS正确的命名可以提高代码的可读性，便于后期查找修改。<br>下面记录一些常用的手段：</p>
+<h2 id="命名与备注"><a href="#命名与备注" class="headerlink" title="命名与备注"></a>命名与备注</h2><p>命名是提高代码可读性的第一步，也是最重要的一步。我接触css的时候命名的问题困扰了我很久，尤其是我这种对英语一窍不通的人来说，当时我就是胡乱命名的，后来看多了别人的代码，才知道这东西是可以统一化的。<br><a id="more"></a><br>下面是一些常规的命名（来自别人的blog，摘抄下来方便平时多看看）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">头：header</div><div class="line">内容：content/container</div><div class="line">尾：footer</div><div class="line">导航：nav</div><div class="line">侧栏：sidebar</div><div class="line">栏目：column</div><div class="line">页面外围控制整体佈局宽度：wrapper</div><div class="line">左右中：left right center</div><div class="line">登录条：loginbar</div><div class="line">标志：logo</div><div class="line">广告：banner</div><div class="line">页面主体：main</div><div class="line">热点：hot</div><div class="line">新闻：news</div><div class="line">下载：download</div><div class="line">子导航：subnav</div><div class="line">菜单：menu</div><div class="line">子菜单：submenu</div><div class="line">搜索：search</div><div class="line">友情链接：friendlink</div><div class="line">页脚：footer</div><div class="line">版权：copyright</div><div class="line">滚动：scroll</div><div class="line">内容：content</div><div class="line">标签：tags</div><div class="line">文章列表：list</div><div class="line">提示信息：msg</div><div class="line">小技巧：tips</div><div class="line">栏目标题：title</div><div class="line">加入：joinus</div><div class="line">指南：guide</div><div class="line">服务：service</div><div class="line">注册：regsiter</div><div class="line">状态：status</div><div class="line">投票：vote</div><div class="line">合作伙伴：partner</div><div class="line">导航：nav</div><div class="line">主导航：mainnav</div><div class="line">子导航：subnav</div><div class="line">顶导航：topnav</div><div class="line">边导航：sidebar</div><div class="line">左导航：leftsidebar</div><div class="line">右导航：rightsidebar</div><div class="line">菜单：menu</div><div class="line">子菜单：submenu</div><div class="line">标题: title</div><div class="line">摘要: summary</div></pre></td></tr></table></figure></p>
+<p>良好的备注也是同样重要，比如可以在不同的功能区之间加入注释，或者是在CSS开头加入注释导航等。这个方法我是在看国外一个WordPress模板的css的时候看到的，我就在某个项目中使用了一次，效果还是不错的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Table of Contents:</div><div class="line"> * A 首页</div><div class="line">	 * 1.0 - Body</div><div class="line">	 * 2.0 - 头部</div><div class="line">	 * 3.0 - 导航区</div><div class="line">	 * 4.0 - 品牌区</div><div class="line">	 * 5.0 - 最新评论区</div><div class="line">	 * 6.0 - 右侧搜索区</div><div class="line">	 * 7.0 - 右侧热门商店</div><div class="line">	 * 8.0 - 热门折扣卷</div><div class="line">	 * 9.0 - Media Queries</div><div class="line">	 * 10.0- Footer</div><div class="line">	 * 11.0- Comments</div><div class="line">	 * 12.0- Coupon-info列表页面</div><div class="line">	 * 13.0- Coupon-info内容页面</div><div class="line">*/</div><div class="line"><span class="comment">/* A 首页  */</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/* 1.0 Body */</span></div><div class="line"></div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#f3f3f3</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span>,<span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">list-style-type</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.boder</span> &#123;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">15px</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#E2E2E2</span>;</div><div class="line">	<span class="attribute">background</span>: white;</div><div class="line">	<span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.max-clear</span> &#123;</div><div class="line">	<span class="attribute">clear</span>: both;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/* 2.0 头部区开始*/</span></div><div class="line"></div><div class="line"><span class="selector-class">.logo</span> &#123;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.banner</span> &#123;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">5px</span>;</div><div class="line">	<span class="attribute">float</span>: right;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">	<span class="attribute">clear</span>: both;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 头部区结束*/</span></div></pre></td></tr></table></figure></p>
+<h2 id="提取重复样式"><a href="#提取重复样式" class="headerlink" title="提取重复样式"></a>提取重复样式</h2><p>这个方法我也经常见过，但每次真正做东西的时候，就忘记了这茬。经常见到的是在一个div里有多个类，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;title black-border bold&quot;&gt;Ruofei Blog&lt;/div&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">.title&#123;padding: 10px 20px;width: 10%;text-align: center;&#125;</div><div class="line">.black-border&#123;border: 1px #000 solid;&#125;</div><div class="line">.bold&#123;font-weight: bold;&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>效果如图：<br><img src="http://i2.buimg.com/567571/175425de75bc4706.png" alt=""><br>其中title类是主要定义这个div的边距位置宽度，black-border类是专门定义一个黑色的像素的实线边框，bold类是加粗。将这三个类分离开后，以后需要用到加粗的熟悉时，直接在div中加上bold类，需要加黑色实线边框的时候直接加上black-border类即可，不需要再css样式中重复写这些属性，大大的减少了css的代码量。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;title black-border bold&quot;&gt;Ruofei Blog&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;br/&gt;</div><div class="line"></div><div class="line">&lt;img class=&quot;black-border&quot; width= &quot;20%&quot; src=&quot;1.jpg&quot;&gt;</div><div class="line"></div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">.title&#123;padding: 10px 20px;padding: 10px 20px;width: 10%;text-align: center;&#125;</div><div class="line">.black-border&#123;border: 1px #000 solid;&#125;</div><div class="line">.bold&#123;font-weight: bold;&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<p>效果如下：<br><img src="http://i4.buimg.com/567571/6ba4d5d96ffcf269.png" alt=""></p>
+<p>直接给img标签加了一个black-border类，就得到了一个和上面div一样的边框效果，而我并没有在css中单独为这个img标签定义边框属性。</p>
+<p>我知道这个对大家来说是很正常的事情，但对我这种刚接触前端的小白来说，真心很神奇！</p>
+<h2 id="书写顺序"><a href="#书写顺序" class="headerlink" title="书写顺序"></a>书写顺序</h2><p>参考的文章中提到了css的几种书写顺序，当然每个人有每个人的习惯。</p>
+<blockquote>
+<p>（1）位置属性(position, top, right, z-index, display, float等)<br>（2）大小(width, height, padding, margin)<br>（3）文字系列(font, line-height, letter-spacing,color- text-align等)<br>（4）背景(background, border等)<br>（5）其他(animation, transition等)</p>
+</blockquote>
+<h2 id="自己的一点小感悟"><a href="#自己的一点小感悟" class="headerlink" title="自己的一点小感悟"></a>自己的一点小感悟</h2><p>当我看到这里的时候，我突然觉得，上一点<strong>提取重复样式</strong>完全可以按照这种分类去归类，相同类型的css分离成一个类，后面即可重复调用，。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;title black-border font-bold&quot;&gt;Ruofei Blog&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;br/&gt;</div><div class="line"></div><div class="line">&lt;img class=&quot;black-border&quot; width= &quot;20%&quot; src=&quot;1.jpg&quot;&gt;</div><div class="line"></div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">.title&#123;padding: 10px 20px;padding: 10px 20px;width: 10%;text-align: center;&#125;</div><div class="line">.black-border&#123;border: 2px #000 solid;&#125;</div><div class="line">.font-bold&#123;font-family: &quot;PT Mono&quot;, Consolas, Monaco, Menlo, monospace;font-weight: bold;&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<p>我对上面的那段代码修改了下，title类专门控制位置信息，black-border类控制边框样式，font-bold类控制字体信息。</p>
+<p>但我写完后发现，按照这种方法分类确实可以，但还是得考虑css重复性的问题，比如我一个地方的文字需要加粗，但不需要这个字体，所以就不能使用font-bold类。</p>
+<p>总结，还是得在动手前想清楚页面中，重复的内容是哪些，将重复的部分提取出来，单独写成一个类，尽管这个类可能只是控制一个文字的字体大小。</p>
+<h2 id="参考文章总结的方法"><a href="#参考文章总结的方法" class="headerlink" title="参考文章总结的方法"></a>参考文章总结的方法</h2><p>1、写代码之前：从PSD文件出发<br>当我们拿到设计师给的PSD时，首先不要急于写CSS代码，首先对整个页面进行分析，主要关注点是下面几个：<br>（1）页面分成了几个模块，哪些模块是公用的，常见的比如头部和底部，还有一些菜单栏等等<br>（2）分析每一个模块都有什么样式，提取出公用的样式，注意公用样式是全局公用（整个页面公用）还是局部公用（模块内公用），公用样式包括公用的状态样式，比如公用的选中状态，禁用状态等等。</p>
+<p>2、开始写代码<br>根据对PSD文件的分析，我们就可以开始着手写代码，我比较推荐SMACSS将样式分成不同类型的做法：<br>（1）第一步是搭好页面的骨架，也就是base样式，layout样式。<br>（2）第二步就是依次实现不同的模块，在这里我推荐BEM的命名思想，但是可以嵌套一到两层的选择器结构</p>
+<p>3、优化代码<br>我相信当我们完成基本的页面效果后，还是会存在着一些重复的或者不够简洁的代码，这时候就是要去优化这些代码，主要是在提取重复代码，尽可能地精简代码。</p>
+<p>部分内容参考：<a href="http://luopq.com/2016/01/05/css-optimize/" target="_blank" rel="external">CSS代码重构与优化之路</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/JavaScript-note-7-document-write-and-innerHTML/" rel="next" title="JavaScript学习笔记7 document.write和innerHTML">
+                <i class="fa fa-chevron-left"></i> JavaScript学习笔记7 document.write和innerHTML
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/JavaScript-note-8-DOM-insert-child-element/" rel="prev" title="JavaScript学习笔记7 DOM为指定元素插入子元素的方法">
+                JavaScript学习笔记7 DOM为指定元素插入子元素的方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/03/css-note-1-css-maintain/"
+     data-title="如何提高CSS的可维护性"
+     data-content=""
+     data-url="http://yoursite.com/2016/09/03/css-note-1-css-maintain/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/03/css-note-1-css-maintain/"
+           data-title="如何提高CSS的可维护性" data-url="http://yoursite.com/2016/09/03/css-note-1-css-maintain/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Ruofei" />
+          <p class="site-author-name" itemprop="name">Ruofei</p>
+          <p class="site-description motion-element" itemprop="description">小白前端学习之路</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名与备注"><span class="nav-number">1.</span> <span class="nav-text">命名与备注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取重复样式"><span class="nav-number">2.</span> <span class="nav-text">提取重复样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书写顺序"><span class="nav-number">3.</span> <span class="nav-text">书写顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己的一点小感悟"><span class="nav-number">4.</span> <span class="nav-text">自己的一点小感悟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章总结的方法"><span class="nav-number">5.</span> <span class="nav-text">参考文章总结的方法</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hualinblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

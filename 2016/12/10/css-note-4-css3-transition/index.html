@@ -1,0 +1,694 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记,css," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RuoFei Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近工作上一直在忙，忙着各种西方的活动，黑5、圣诞、新年等，虽然平时工作的时候也折腾了比较多的东西，但零零碎碎的没有仔细的记录下来。
+以前css3里的transform我不太会用，工作中也经常去别人的站里复制相关的transform效果，所以今天特意自己看看这个效果的用法。
+总结出来：1、相关的兼容要做好2、不知道为什么，360浏览器对transition和transform支持不太好，基本只能实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3里transition和transform回顾练习">
+<meta property="og:url" content="http://yoursite.com/2016/12/10/css-note-4-css3-transition/index.html">
+<meta property="og:site_name" content="RuoFei Blog">
+<meta property="og:description" content="最近工作上一直在忙，忙着各种西方的活动，黑5、圣诞、新年等，虽然平时工作的时候也折腾了比较多的东西，但零零碎碎的没有仔细的记录下来。
+以前css3里的transform我不太会用，工作中也经常去别人的站里复制相关的transform效果，所以今天特意自己看看这个效果的用法。
+总结出来：1、相关的兼容要做好2、不知道为什么，360浏览器对transition和transform支持不太好，基本只能实">
+<meta property="og:image" content="http://p1.bpimg.com/567571/c4938266f0526d02.gif">
+<meta property="og:updated_time" content="2017-02-05T09:23:56.504Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css3里transition和transform回顾练习">
+<meta name="twitter:description" content="最近工作上一直在忙，忙着各种西方的活动，黑5、圣诞、新年等，虽然平时工作的时候也折腾了比较多的东西，但零零碎碎的没有仔细的记录下来。
+以前css3里的transform我不太会用，工作中也经常去别人的站里复制相关的transform效果，所以今天特意自己看看这个效果的用法。
+总结出来：1、相关的兼容要做好2、不知道为什么，360浏览器对transition和transform支持不太好，基本只能实">
+<meta name="twitter:image" content="http://p1.bpimg.com/567571/c4938266f0526d02.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/10/css-note-4-css3-transition/"/>
+
+  <title> css3里transition和transform回顾练习 | RuoFei Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RuoFei Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">小白前端学习之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                css3里transition和transform回顾练习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-10T20:17:15+08:00" content="2016-12-10">
+              2016-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/10/css-note-4-css3-transition/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/css-note-4-css3-transition/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近工作上一直在忙，忙着各种西方的活动，黑5、圣诞、新年等，虽然平时工作的时候也折腾了比较多的东西，但零零碎碎的没有仔细的记录下来。</p>
+<p>以前css3里的transform我不太会用，工作中也经常去别人的站里复制相关的transform效果，所以今天特意自己看看这个效果的用法。</p>
+<p>总结出来：<br>1、相关的兼容要做好<br>2、不知道为什么，360浏览器对transition和transform支持不太好，基本只能实现半套的动画，剩下的半套直接还原了。百度了下还没有找到解决方法<br>3、3d功能少用，因为兼容不好</p>
+<p>随意做的练习，定义了本地一个比较喜欢的字体（<a href="http://www.daimg.com/font/201507/ziti_67924.html" target="_blank" rel="external">LeviReBrushed</a>）<br><img src="http://p1.bpimg.com/567571/c4938266f0526d02.gif" alt=""></p>
+<p>Link: <a href="http://www.ruofeiblog.com/2016/12/10/transition-transform/index.html" target="_blank" rel="external">简易transition和transform练习</a></p>
+<p>HTML部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box&quot;&gt;                </div><div class="line">    &lt;div class=&quot;link link-flish&quot;&gt;</div><div class="line">        &lt;span class=&quot;icon&quot;&gt;&lt;/span&gt;</div><div class="line">        &lt;a href=&quot;#&quot;&gt;</div><div class="line">            Flish</div><div class="line">            &lt;img src=&quot;images/look.png&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;/a&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;link link-drink&quot;&gt;</div><div class="line">        &lt;span class=&quot;icon&quot;&gt;&lt;/span&gt;</div><div class="line">        &lt;a href=&quot;#&quot;&gt;</div><div class="line">            Drink</div><div class="line">            &lt;img src=&quot;images/look.png&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;/a&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;link link-eat&quot;&gt;</div><div class="line">        &lt;span class=&quot;icon&quot;&gt;&lt;/span&gt;</div><div class="line">        &lt;a href=&quot;#&quot;&gt;</div><div class="line">            Eat</div><div class="line">            &lt;img src=&quot;images/look.png&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;/a&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">*&#123;margin: 0;padding: 0;&#125;</div><div class="line"></div><div class="line">a&#123;</div><div class="line">    text-decoration: none;</div><div class="line">    font-family: LeviReBrushed,Cambria, Cochin, Georgia, Times, Times New Roman, serif;</div><div class="line">&#125;</div><div class="line">a:link,a::visited,a::active&#123;</div><div class="line">    color:#ff7e15;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">.box&#123;width: 85%;margin: 50px auto;&#125;</div><div class="line"></div><div class="line">.link&#123;</div><div class="line">    width: 29%;</div><div class="line">    margin: 0 2%;</div><div class="line">    float: left;</div><div class="line">&#125;</div><div class="line">.link-flish .icon&#123;</div><div class="line">    background: url(../images/1.png) no-repeat center center;</div><div class="line">&#125;</div><div class="line">.link-drink .icon&#123;</div><div class="line">    background: url(../images/2.png) no-repeat center center;</div><div class="line">&#125;</div><div class="line">.link-eat .icon&#123;</div><div class="line">    background: url(../images/3.png) no-repeat center center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">.link .icon&#123;</div><div class="line">    display: block;</div><div class="line">    width: 80%;</div><div class="line">    height:190px;</div><div class="line">    transition:0.4s linear 0.1s;</div><div class="line">    -o-transition:0.4s linear 0.1s;</div><div class="line">    -moz-transition:0.4s linear 0.1s;</div><div class="line">    -webkit-transition:0.4s linear 0.1s;</div><div class="line">    -ms-transition:0.4s linear 0.1s;</div><div class="line">&#125;</div><div class="line">.link:hover .icon&#123;</div><div class="line">    transform: rotate(345deg) scale(0.8);</div><div class="line">    -ms-transform:rotate(345deg) scale(0.8);</div><div class="line">    -o-transform:rotate(345deg) scale(0.8);</div><div class="line">    -webkit-transform:rotate(345deg) scale(0.8);</div><div class="line">    -moz-transform: rotate(345deg) scale(0.8);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.link a&#123;</div><div class="line">    font-size: 40px;</div><div class="line">    color:#ff7e15;</div><div class="line">    width: 85%;</div><div class="line">    text-align: center;</div><div class="line">    display: block;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.link a img&#123;</div><div class="line">    width:30px;</div><div class="line">    transition:0.3s linear 0.1s;</div><div class="line">    -o-transition:0.3s linear 0.1s;</div><div class="line">    -moz-transition:0.3s linear 0.1s;</div><div class="line">    -webkit-transition:0.3s linear 0.1s;</div><div class="line">    -ms-transition:0.3s linear 0.1s;</div><div class="line">&#125;</div><div class="line">.link:hover a img&#123;</div><div class="line">    transform: rotate(-345deg) scale(1.1) translateX(20px);</div><div class="line">    -o-transform: rotate(-345deg) scale(1.1) translateX(20px);</div><div class="line">    -moz-transform: rotate(-345deg) scale(1.1) translateX(20px);</div><div class="line">    -ms-transform: rotate(-345deg) scale(1.1) translateX(20px);</div><div class="line">    -webkit-transform: rotate(-345deg) scale(1.1) translateX(20px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/05/html5-note2-form/" rel="next" title="HTML5 表单">
+                <i class="fa fa-chevron-left"></i> HTML5 表单
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/10/diary-work-2016-DEC/" rel="prev" title="整理近期工作成果">
+                整理近期工作成果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/10/css-note-4-css3-transition/"
+     data-title="css3里transition和transform回顾练习"
+     data-content=""
+     data-url="http://yoursite.com/2016/12/10/css-note-4-css3-transition/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/10/css-note-4-css3-transition/"
+           data-title="css3里transition和transform回顾练习" data-url="http://yoursite.com/2016/12/10/css-note-4-css3-transition/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Ruofei" />
+          <p class="site-author-name" itemprop="name">Ruofei</p>
+          <p class="site-description motion-element" itemprop="description">小白前端学习之路</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hualinblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
