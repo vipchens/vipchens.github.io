@@ -260,6 +260,163 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/07/ie-version/" itemprop="url">
+                  js判断ie浏览器7、8、9三个版本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-07T14:21:15+08:00" content="2017-02-07">
+              2017-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/JavaScript/兼容性/" itemprop="url" rel="index">
+                    <span itemprop="name">兼容性</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/07/ie-version/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/ie-version/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/07/ie-version/" class="leancloud_visitors" data-flag-title="js判断ie浏览器7、8、9三个版本">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上午的时候，本来是想做一个position:fixed在各个浏览器下兼容的方案的，但是发现ie7/8下面的position:fixed只支持一个屏幕，如果内容高度超过一个屏幕就不能很好的使用position:fixed了（如果哪个同学有position:fixed的完美方案麻烦给我一下），于是我想用js来兼容，其实就是通过scroll监听来实现，于是需要判断ie7/8这俩版本，但是发现jquery的$.browser.version并不支持ie8，于是我就百度，百度倒是给出很多答案，但是发现ie8还是没能检测出来，后来我自己查看了navigator.userAgent这个东西，在各个浏览器下面打出来是这个样子的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//ie9 : Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)</div><div class="line">//ie8 : Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)</div><div class="line">//ie7 : Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; Tablet PC 2.0; .NET4.0E; .NET4.0C)</div><div class="line">//Mozi: Mozilla/5.0 (Windows NT 6.1; rv:20.0) Gecko/20100101 Firefox/20.0</div><div class="line">//goog: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22</div><div class="line">//oper: Opera/9.80  (Windows NT 6.1; Edition IBIS) Presto/2.12.388 Version/12.14</div><div class="line">//appl: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2</div></pre></td></tr></table></figure>
+<p>你就发现，ie8和ie9是一样的，这下子蒙了，看来光靠这个navigator.userAgent是不够了，但是我相信你也很快就知道怎么做了，因为i9还是一个比较先进的浏览器，拥有一些ie8没有的属性，我不一一罗列了，其中一个就是window.innerWidth，这个属性值是浏览器的内高度（不包括工具栏和滚动条，还是一个比较有用的属性）。ie8下面这个属性值是undefined,9下面就ok了，显示的是一个数字。于是判断浏览器版本就很自然了，看下面这个方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if(navigator.userAgent.indexOf(&quot;MSIE&quot;)&gt;0)&#123;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 6.0&quot;)&gt;0)&#123;</div><div class="line">        alert(&quot;ie6&quot;);</div><div class="line">      &#125;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 7.0&quot;)&gt;0)&#123;</div><div class="line">        alert(&quot;ie7&quot;);</div><div class="line">      &#125;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 9.0&quot;)&gt;0 &amp;&amp; !window.innerWidth)&#123;//这里是重点，你懂的</div><div class="line">        alert(&quot;ie8&quot;);</div><div class="line">      &#125;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 9.0&quot;)&gt;0)&#123;</div><div class="line">        alert(&quot;ie9&quot;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>其他浏览器的判断就简单了，百度一下不要太多。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/12/css-note-5-css3-transition2/" itemprop="url">
                   css3幽灵按钮效果初体验
                 </a>
@@ -1567,150 +1724,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/03/css-note-1-css-maintain/" itemprop="url">
-                  如何提高CSS的可维护性
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T00:12:42+08:00" content="2016-09-03">
-              2016-09-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/03/css-note-1-css-maintain/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/css-note-1-css-maintain/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/03/css-note-1-css-maintain/" class="leancloud_visitors" data-flag-title="如何提高CSS的可维护性">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>为CSS正确的命名可以提高代码的可读性，便于后期查找修改。<br>下面记录一些常用的手段：</p>
-<h2 id="命名与备注"><a href="#命名与备注" class="headerlink" title="命名与备注"></a>命名与备注</h2><p>命名是提高代码可读性的第一步，也是最重要的一步。我接触css的时候命名的问题困扰了我很久，尤其是我这种对英语一窍不通的人来说，当时我就是胡乱命名的，后来看多了别人的代码，才知道这东西是可以统一化的。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/03/css-note-1-css-maintain/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1756,7 +1769,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1764,7 +1777,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1773,7 +1786,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

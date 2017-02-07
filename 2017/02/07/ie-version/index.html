@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,笔记,兼容性," />
 
 
 
@@ -86,15 +86,16 @@
 
 
 
-<meta name="description" content="小白前端学习之路">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RuoFei Blog">
-<meta property="og:url" content="http://yoursite.com/categories/日记/index.html">
+<meta name="description" content="上午的时候，本来是想做一个position:fixed在各个浏览器下兼容的方案的，但是发现ie7/8下面的position:fixed只支持一个屏幕，如果内容高度超过一个屏幕就不能很好的使用position:fixed了（如果哪个同学有position:fixed的完美方案麻烦给我一下），于是我想用js来兼容，其实就是通过scroll监听来实现，于是需要判断ie7/8这俩版本，但是发现jquery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js判断ie浏览器7、8、9三个版本">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/ie-version/index.html">
 <meta property="og:site_name" content="RuoFei Blog">
-<meta property="og:description" content="小白前端学习之路">
+<meta property="og:description" content="上午的时候，本来是想做一个position:fixed在各个浏览器下兼容的方案的，但是发现ie7/8下面的position:fixed只支持一个屏幕，如果内容高度超过一个屏幕就不能很好的使用position:fixed了（如果哪个同学有position:fixed的完美方案麻烦给我一下），于是我想用js来兼容，其实就是通过scroll监听来实现，于是需要判断ie7/8这俩版本，但是发现jquery">
+<meta property="og:updated_time" content="2017-02-07T06:23:43.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RuoFei Blog">
-<meta name="twitter:description" content="小白前端学习之路">
+<meta name="twitter:title" content="js判断ie浏览器7、8、9三个版本">
+<meta name="twitter:description" content="上午的时候，本来是想做一个position:fixed在各个浏览器下兼容的方案的，但是发现ie7/8下面的position:fixed只支持一个屏幕，如果内容高度超过一个屏幕就不能很好的使用position:fixed了（如果哪个同学有position:fixed的完美方案麻烦给我一下），于是我想用js来兼容，其实就是通过scroll监听来实现，于是需要判断ie7/8这俩版本，但是发现jquery">
 
 
 
@@ -115,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/日记/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/07/ie-version/"/>
 
-  <title> 分类: 日记 | RuoFei Blog </title>
+  <title> js判断ie浏览器7、8、9三个版本 | RuoFei Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,47 +237,195 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        日记
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js判断ie浏览器7、8、9三个版本
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-07T14:21:15+08:00" content="2017-02-07">
+              2017-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/JavaScript/兼容性/" itemprop="url" rel="index">
+                    <span itemprop="name">兼容性</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/07/ie-version/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/ie-version/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/07/ie-version/" class="leancloud_visitors" data-flag-title="js判断ie浏览器7、8、9三个版本">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>上午的时候，本来是想做一个position:fixed在各个浏览器下兼容的方案的，但是发现ie7/8下面的position:fixed只支持一个屏幕，如果内容高度超过一个屏幕就不能很好的使用position:fixed了（如果哪个同学有position:fixed的完美方案麻烦给我一下），于是我想用js来兼容，其实就是通过scroll监听来实现，于是需要判断ie7/8这俩版本，但是发现jquery的$.browser.version并不支持ie8，于是我就百度，百度倒是给出很多答案，但是发现ie8还是没能检测出来，后来我自己查看了navigator.userAgent这个东西，在各个浏览器下面打出来是这个样子的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//ie9 : Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)</div><div class="line">//ie8 : Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)</div><div class="line">//ie7 : Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; Tablet PC 2.0; .NET4.0E; .NET4.0C)</div><div class="line">//Mozi: Mozilla/5.0 (Windows NT 6.1; rv:20.0) Gecko/20100101 Firefox/20.0</div><div class="line">//goog: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22</div><div class="line">//oper: Opera/9.80  (Windows NT 6.1; Edition IBIS) Presto/2.12.388 Version/12.14</div><div class="line">//appl: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2</div></pre></td></tr></table></figure>
+<p>你就发现，ie8和ie9是一样的，这下子蒙了，看来光靠这个navigator.userAgent是不够了，但是我相信你也很快就知道怎么做了，因为i9还是一个比较先进的浏览器，拥有一些ie8没有的属性，我不一一罗列了，其中一个就是window.innerWidth，这个属性值是浏览器的内高度（不包括工具栏和滚动条，还是一个比较有用的属性）。ie8下面这个属性值是undefined,9下面就ok了，显示的是一个数字。于是判断浏览器版本就很自然了，看下面这个方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if(navigator.userAgent.indexOf(&quot;MSIE&quot;)&gt;0)&#123;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 6.0&quot;)&gt;0)&#123;</div><div class="line">        alert(&quot;ie6&quot;);</div><div class="line">      &#125;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 7.0&quot;)&gt;0)&#123;</div><div class="line">        alert(&quot;ie7&quot;);</div><div class="line">      &#125;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 9.0&quot;)&gt;0 &amp;&amp; !window.innerWidth)&#123;//这里是重点，你懂的</div><div class="line">        alert(&quot;ie8&quot;);</div><div class="line">      &#125;</div><div class="line">      if(navigator.userAgent.indexOf(&quot;MSIE 9.0&quot;)&gt;0)&#123;</div><div class="line">        alert(&quot;ie9&quot;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>其他浏览器的判断就简单了，百度一下不要太多。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/12/10/diary-work-2016-DEC/" itemprop="url">
-              
-                <span itemprop="name">整理近期工作成果</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-10T21:42:38+08:00"
-              content="2016-12-10" >
-          12-10
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+            <a href="/tags/兼容性/" rel="tag">#兼容性</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/12/css-note-5-css3-transition2/" rel="next" title="css3幽灵按钮效果初体验">
+                <i class="fa fa-chevron-left"></i> css3幽灵按钮效果初体验
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
+      
+    </div>
+  </div>
 
 
           </div>
@@ -284,6 +433,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/07/ie-version/"
+           data-title="js判断ie浏览器7、8、9三个版本" data-url="http://yoursite.com/2017/02/07/ie-version/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -303,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://obtw9lzb6.bkt.clouddn.com/16-8-16/44410713.jpg"
@@ -361,6 +527,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -457,6 +634,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
